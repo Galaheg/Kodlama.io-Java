@@ -1,19 +1,21 @@
 package kodlamaIO.entities;
 
-public class Course extends MainWindow{
-	
+public class Course extends MainWindow {
+
 	private String courseName;
 	private int courseId;
 	private Instructor instructor;
 	private Category category;
+	private int coursePrice;
 
-	public Course(String courseName, int courseId, Instructor instructor, Category category) {
-		
+	public Course(String courseName, int courseId, int coursePrice, Instructor instructor, Category category) {
+
 		this.courseName = courseName;
 		this.courseId = courseId;
 		this.category = category;
 		this.instructor = instructor;
-	}
+		this.coursePrice = coursePrice;
+	}	
 
 	public String getCourseName() {
 		return courseName;
@@ -29,6 +31,14 @@ public class Course extends MainWindow{
 
 	public void setCourseId(int courseId) {
 		this.courseId = courseId;
+	}
+
+	public int getCoursePrice() {
+		return coursePrice;
+	}
+
+	public void setCoursePrice(int coursePrice) {
+		this.coursePrice = coursePrice;
 	}
 
 	public Instructor getInstructor() {

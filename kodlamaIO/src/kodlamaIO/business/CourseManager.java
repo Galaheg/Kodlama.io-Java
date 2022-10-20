@@ -15,11 +15,21 @@ public class CourseManager {
 		_courseAccess = courseAccess;
 	}
 
-	public void add(Course course) {
-
+	public void add(Course course) throws Exception {
+		
+		for (Course courseChceck : _courseAccess.getCourses()) {
+			if(courseChceck.getCourseName().equals(course.getCourseName())) {
+				throw new Exception("Course names can't be the same");
+			}
+		}
+		if(course.getCoursePrice()<=0) {
+			throw new Exception("Course price can't be 0 or lower");
+		}
+		
 		_courseAccess.add(course);
 		for (ILogger iLogger : _loggers) {
 			iLogger.log(course);
+		
 		}
 	}
 }

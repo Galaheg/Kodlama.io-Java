@@ -20,7 +20,7 @@ import kodlamaIO.entities.Instructor;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
 		List<ILogger> loggers = Arrays.asList(new CloudLogger(), new DBLogger(), new FileLogger(), new MailLogger());
 		
@@ -30,7 +30,7 @@ public class Main {
 		Instructor instructor = new Instructor("Engin", "Demirog", 1);
 		instructor.setUniqueName("Instructor: " + instructor.getFirstName() + " " + instructor.getLastName());
 		
-		Course course = new Course("Java + React", 1, instructor, category);
+		Course course = new Course("Java + React", 1,100,instructor, category);
 		course.setUniqueName("Course: " + " " + course.getCourseName());
 		
 		CategoryManager categoryManager = new CategoryManager(new JdbcCategoryDao(), loggers);

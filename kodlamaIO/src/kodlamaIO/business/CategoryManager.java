@@ -16,8 +16,13 @@ public class CategoryManager{
 		_categoryAccess = categoryAccess;
 	}
 
-	public void add(Category category) {
-
+	public void add(Category category) throws Exception {
+		
+		for (Category categoryCheck : _categoryAccess.getCategories()) {
+			if (categoryCheck.getCategoryName().equals(category.getCategoryName())) {
+				throw new Exception("Category names can't be the same");
+			}
+		}
 		_categoryAccess.add(category);
 		for (ILogger iLogger : _loggers) {
 			iLogger.log(category);
